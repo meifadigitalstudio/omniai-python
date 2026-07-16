@@ -1,4 +1,32 @@
-.venv
+# Virtual Environment
+.venv/
 
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Environment
 .env
-!.env.example
+
+# VS Code
+.vscode/
+
+# Pytest
+.pytest_cache/
+
+# Coverage
+.coverage
+htmlcov/
+
+# Build
+build/
+dist/
+*.egg-info/
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
