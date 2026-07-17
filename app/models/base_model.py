@@ -5,7 +5,7 @@ from sqlalchemy import DateTime
 from sqlalchemy.orm import Mapped
 from sqlalchemy.orm import mapped_column
 
-from app.database.base import Base
+from app.database import Base
 
 
 class BaseModel(Base):

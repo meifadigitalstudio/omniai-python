@@ -1,9 +1,9 @@
 from datetime import datetime
 
-from sqlalchemy import Boolean, DateTime, String
+from sqlalchemy import Boolean, DateTime, ForeignKey, String
 from sqlalchemy.orm import Mapped, mapped_column
 
-from app.models.base_model import BaseModel
+from app.models import BaseModel
 
 
 class User(BaseModel):
@@ -51,3 +51,10 @@ class User(BaseModel):
         DateTime(timezone=True),
         nullable=True,
     )
+
+    email_verified_at: Mapped[datetime | None] = mapped_column(
+        DateTime(timezone=True),
+        nullable=True,
+    )
+
+    role_id: Mapped[int] = mapped_column(ForeignKey("roles.id"), nullable=True)

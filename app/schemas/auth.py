@@ -15,14 +15,10 @@ class RegisterRequest(BaseModel):
         min_length=8,
         max_length=255,
     )
-    phone_number: str | None = Field(
-        default=None,
-        max_length=30,
-    )
 
 
 class LoginRequest(BaseModel):
-    email: EmailStr
+    identifier: str
     password: str
 
 

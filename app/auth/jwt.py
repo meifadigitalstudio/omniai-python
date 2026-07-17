@@ -3,7 +3,7 @@ from uuid import uuid4
 
 import jwt
 
-from app.core.config import settings
+from app.core import settings
 
 
 def _create_token(
