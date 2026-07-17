@@ -2,18 +2,25 @@ from fastapi import FastAPI, Request
 from fastapi.exceptions import RequestValidationError
 from fastapi.responses import JSONResponse
 
-from app.api.router import router
 from app.core import settings
 
 from app.core import AppException
-from app.utils import error_response
+from app.common.responses import error_response
+from app.modules.auth.api import router as auth_router
 
 app = FastAPI(
     title=settings.APP_NAME,
     version=settings.APP_VERSION,
 )
 
-app.include_router(router)
+app.include_router(auth_router, prefix="/api/v1")
+
+
+@app.get("/api/v1/health")
+def health():
+    return {
+        "status": "ok"
+    }
 
 
 @app.exception_handler(AppException)

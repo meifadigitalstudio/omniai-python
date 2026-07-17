@@ -26,6 +26,17 @@ class Settings(BaseSettings):
         case_sensitive=True,
     )
 
+    MAIL_USERNAME: str
+    MAIL_PASSWORD: str
+    MAIL_FROM: str
+    MAIL_FROM_NAME: str
+    MAIL_PORT: int
+    MAIL_SERVER: str
+    MAIL_STARTTLS: bool
+    MAIL_SSL_TLS: bool
+    MAIL_CC: str
+    MAIL_BCC: str
+
     @property
     def DATABASE_URL(self) -> str:
         return (
@@ -33,6 +44,31 @@ class Settings(BaseSettings):
             f"{self.DB_USER}:{self.DB_PASSWORD}"
             f"@{self.DB_HOST}:{self.DB_PORT}/{self.DB_NAME}"
         )
+    
+    @property
+    def MAIL_CC_LIST(self) -> list[str]:
+
+        if not self.MAIL_CC:
+            return []
+
+        return [
+            x.strip()
+            for x in self.MAIL_CC.split(",")
+            if x.strip()
+        ]
+
+
+    @property
+    def MAIL_BCC_LIST(self) -> list[str]:
+
+        if not self.MAIL_BCC:
+            return []
+
+        return [
+            x.strip()
+            for x in self.MAIL_BCC.split(",")
+            if x.strip()
+        ]
 
 
 settings = Settings()

@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>{{ title or "OmniAI" }}</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+
+background:#f3f5f7;
+
+font-family:
+Segoe UI,
+Roboto,
+Arial,
+sans-serif;
+
+padding:40px 20px;
+
+color:#374151;
+
+}
+
+.container{
+
+max-width:650px;
+
+margin:auto;
+
+background:white;
+
+border-radius:14px;
+
+overflow:hidden;
+
+box-shadow:
+
+0 8px 30px rgba(0,0,0,.08);
+
+}
+
+.header{
+
+padding:30px;
+
+background:linear-gradient(
+135deg,
+#2563eb,
+#4f46e5
+);
+
+text-align:center;
+
+}
+
+.logo{
+
+font-size:30px;
+
+font-weight:bold;
+
+color:white;
+
+letter-spacing:1px;
+
+}
+
+.content{
+
+padding:40px;
+
+line-height:1.8;
+
+}
+
+.button{
+
+display:inline-block;
+
+padding:14px 28px;
+
+background:#2563eb;
+
+color:white !important;
+
+text-decoration:none;
+
+border-radius:8px;
+
+font-weight:bold;
+
+margin-top:20px;
+
+}
+
+.code{
+
+margin:35px 0;
+
+padding:20px;
+
+background:#eef4ff;
+
+border-radius:12px;
+
+text-align:center;
+
+font-size:40px;
+
+font-weight:bold;
+
+letter-spacing:10px;
+
+color:#2563eb;
+
+}
+
+.footer{
+
+padding:25px;
+
+background:#fafafa;
+
+font-size:13px;
+
+color:#777;
+
+text-align:center;
+
+}
+
+.footer a{
+
+color:#2563eb;
+
+text-decoration:none;
+
+}
+
+@media only screen and (max-width:600px){
+
+.content{
+
+padding:25px;
+
+}
+
+.code{
+
+font-size:30px;
+
+letter-spacing:6px;
+
+}
+
+.logo{
+
+font-size:24px;
+
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="header">
+
+<div class="logo">
+
+OmniAI
+
+</div>
+
+</div>
+
+<div class="content">
+
+{% block content %}
+
+{% endblock %}
+
+</div>
+
+<div class="footer">
+
+<p>
+
+© {{ year }}
+
+<b>OmniAI</b>
+
+</p>
+
+<br>
+
+<p>
+
+This email was sent automatically.
+
+Please do not reply to this email.
+
+</p>
+
+<br>
+
+<a href="https://omniai.com">
+
+omniai.com
+
+</a>
+
+</div>
+
+</div>
+
+</body>
+
+</html>
